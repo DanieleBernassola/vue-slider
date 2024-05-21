@@ -2,6 +2,7 @@ const { createApp } = Vue;
 
 createApp({
     data() {
+        // Dentro il data mettiamo il nostro array
         return {
             slides: [
                 {
@@ -32,5 +33,24 @@ createApp({
             ],
             currentIndex: 0,
         };
+
     },
+    // Fuori dal data mettiamo methods per aggiungere delle funzioni
+    methods: {
+        // Il this in una funzione prende lo scope del padre
+        prevImg(){
+            if(this.currentIndex > 0){
+                this.currentIndex--;
+            } else {
+                this.currentIndex = 4;
+            }
+        },
+        nextImg(){
+            if(this.currentIndex < this.slides.length - 1){
+                this.currentIndex++;
+            } else {
+                this.currentIndex = 0;
+            }
+        }
+    }
 }).mount('#app');
