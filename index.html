@@ -30,20 +30,12 @@
                     <!-- @CLICK aggiunge un event listener click al bottone -->
                     <button class="prev" @click="prevImg"></button>
                     <button class="next" @click="nextImg"></button>
-                    <div class="thumb active">
-                        <img src="img/01.webp" alt="Svezia" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/02.webp" alt="Ratchet & Clank" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/03.webp" alt="Fortnite" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/04.webp" alt="Stray" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/05.webp" alt="Avengers" />
+                    <!-- Ciclo che crea le thumbs -->
+                    <div class="thumb active" v-for="(slide, index) in slides">
+                        <!-- Aggiungo evento click sulla thumb per prendere il suo indice -->
+                        <img :src="slide.image"
+                        :alt="slide.title" 
+                        @click="setImg(index)"/>
                     </div>
                 </div>
 

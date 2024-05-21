@@ -51,6 +51,9 @@ createApp({
             } else {
                 this.currentIndex = 0;
             }
+        },
+        setImg(index){
+            this.currentIndex = index;
         }
     }
 }).mount('#app');
